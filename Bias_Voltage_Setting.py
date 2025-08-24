@@ -81,7 +81,7 @@ fimg = Image.open(filename)
 img = np.array(fimg)
 
 # minimum number of peaks needed based on user-defined parameters
-min_peaks = num_peaks*every_n_peaks + skip_peaks_left + skip_peaks_right
+min_peaks = 2*num_peaks*every_n_peaks + skip_peaks_left + skip_peaks_right
 
 # find starting index of the best swath lineout
 swath_start = best_lineout(img, min_peaks, min_height, min_distance)
