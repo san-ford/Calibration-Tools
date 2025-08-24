@@ -73,11 +73,13 @@ def get_ctr(line):
     return (np.array([ctr]), non_zero[0], non_zero[-1])
 
 
-# import image data; change file name as needed
+# import image data
 fimg = Image.open(filename)
 img = np.array(fimg)
 
 # determine correct orientation for image
+
+# take sample from middle
 midpoint = len(img) // 2
 sample = np.mean(img[midpoint - 10:midpoint + 10], axis=0)
 # find peaks in the sample
