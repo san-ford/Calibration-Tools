@@ -20,3 +20,14 @@ The CTR calculator assists with camera resolution evaluation during the calibrat
 This tool produces CTR measurements throughout an image and retrieves specific measurements at points of interest:
 
 <img width="516" height="438" alt="Figure_2" src="https://github.com/user-attachments/assets/a7810e05-7d69-4071-9908-61415e6b2d9d" />
+
+## Full Width at Half Maximum (FWHM) Calculator
+The FWHM Calculator assists with optical alignment and focus during the streak camera calibration process. The image analyzed must be taken with an overfilled slit. It may be either a swept image with a short-pulse laser or a static image such as this:
+
+<img width="3412" height="412" alt="75ms_Exp" src="https://github.com/user-attachments/assets/b9b82a78-0f69-45ab-8bb0-8f2aa51d7972" />
+
+This calibration tool fits a Gaussian curve to each line of the image and calculates the FWHM from the optimal hyperparameters, which it then displays as a graph.
+
+It also produces measurements for the average FWHM of a 40-pixel swath at three points of interest along the image (25%, 50%, and 75% spatially), in accordance with procedure:
+
+<img width="564" height="450" alt="Figure_3" src="https://github.com/user-attachments/assets/aabd7237-d926-4710-b6de-1b9a7ffd87c1" />
