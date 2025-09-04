@@ -42,7 +42,7 @@ def gaussian(x, amplitude, mean, stddev):
 
 
 # fit a gaussian to each line of data to calculate fwhm
-def get_fwhm(img):
+def get_fwhm(x_data, img):
     # define list for full-width half max
     fwhm = []
     
@@ -93,10 +93,10 @@ background = stats.mode(img.reshape(len(img)*len(img[0])))[0]
 img -= background
 
 # set x-axis
-x_data = np.linspace(0, len(img[0])-1, len(img[0]))
+x = np.linspace(0, len(img[0])-1, len(img[0]))
 
 # retrieve fwhm for every line
-fwhm = get_fwhm(img)
+fwhm = get_fwhm(x, img)
 
 # create fwhm list without None values
 fwhm_filtered = [i for i in fwhm if i is not None]
@@ -106,9 +106,9 @@ if len(fwhm_filtered) < len(fwhm) / 2:
     # if not, rotate image
     img = np.rot90(img, axes=(1,0))
     # reset x-axis
-    x_data = np.linspace(0, len(img[0])-1, len(img[0]))
+    x = np.linspace(0, len(img[0])-1, len(img[0]))
     # recalculate fwhm across image
-    fwhm = get_fwhm(img)
+    fwhm = get_fwhm(x, img)
     # create new fwhm list without None values
     fwhm_filtered = [i for i in fwhm if i is not None]
     # if image is still not acceptable, send error message
